@@ -1,0 +1,67 @@
+//plugins { //add-ons
+//    id 'java'
+//}
+//
+//group 'org.example'
+//version '1.0-SNAPSHOT'
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+//    testCompile 'org.junit.jupiter:junit-jupiter-params:5.3.1'
+//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+//    //compile "org.apache.poi:poi:4.0.0"          // For `.xls` files
+//    compile "org.apache.poi:poi-ooxml:4.0.0"
+//    // https://mvnrepository.com/artifact/org.apache.poi/poi
+////    implementation group: 'org.apache.poi', name: 'poi', version: '3.9'
+////    compile 'org.apache.poi:poi-ooxml:4.0.0'
+////    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+////    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+//}
+//
+////build{
+////    println "hi"
+////}
+//
+//task hello{
+//
+//    doLast{println "hiii!"}
+//}
+//test {
+//    useJUnitPlatform()
+//}
+
+plugins {
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.poi/poi
+    implementation group: 'org.apache.poi', name: 'poi', version: '3.9'
+// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    implementation "org.apache.poi:poi:4.0.0"          // For `.xls` files
+    implementation "org.apache.poi:poi-ooxml:3.17"    // For `.xlsx` files
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'PASSED', 'FAILED', 'SKIPPED'
+    }
+}
